@@ -7,10 +7,41 @@ class TodoList extends Component {
     super (props);
     this.state = {
       items: [],
+      visible:false,
     };
     this.addItem = this.addItem.bind (this);
     this.deleteItem = this.deleteItem.bind (this);
   }
+
+  componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/photos')
+    .then((response) => {
+      fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then((response) => {
+        fetch('https://jsonplaceholder.typicode.com/comments')
+        .then((response) => {
+          this.setState({
+            visible:true
+          });
+        })
+        .then((myJson) => {
+          console.log(myJson);
+        });
+      })
+      .then((myJson) => {
+        console.log(myJson);
+      });      
+    })
+    .then((myJson) => {
+      console.log(myJson);
+    });
+    // setInterval(() => {
+    //   this.setState({
+    //         visible:true
+    //       });
+    // }, 4000);    
+  }
+
   addItem (e) {
     if (this._inputElement.value !== '') {
       var newItem = {
@@ -44,10 +75,12 @@ class TodoList extends Component {
       <div className="todoListMain">
         <div className="header">
           <form onSubmit={this.addItem}>
-            <input
+            {this.state.visible && <input
+              autoFocus
+              className="new task"
               ref={a => (this._inputElement = a)}
               placeholder="enter task"
-            />
+            />}
             <button type="submit">add</button>
           </form>
         </div>

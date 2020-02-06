@@ -12,6 +12,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress": "cypress open",
+    "test:e2e": "cross-env CYPRESS_baseUrl=https://test.codezinger.com node_modules/.bin/cypress run"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.0",
+    "cypress": "^3.8.2"
   }
 }

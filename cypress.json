@@ -1,0 +1,9 @@
+{
+    "baseUrl": "https://test.codezinger.com",
+    "env":{        
+        "faculty-email": "change-me",
+        "faculty-password": "change-me",
+        "student-email": "change-me",
+        "student-password": "change-me"
+    }
+}
